@@ -7,5 +7,6 @@ image = openCV.imread(imagePath)
 if image is not None:
     openCV.imshow('Image', image)
     openCV.waitKey(0)
+    openCV.destroyAllWindows()
 else:
     print("Failed to load the image.")
