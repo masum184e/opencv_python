@@ -8,8 +8,11 @@ pip install opencv-python
 
 - `openCV.imshow(frameName, image)` - display an image in a window
 
-- `openCV.waitKey(0)` - 
-- `openCV.destroyAllWindows()` - 
+- `openCV.waitKey(0)` -  allows users to display a window for given milliseconds or until any key is pressed. If the parameter value is 0, you have press any key from your keyboard to destroy the window, untill it will keep open. If the parameter value is other value instead of 0, it will automatically destroy the window after that amount of milliseconds
+
+- `openCV.destroyAllWindows()` - close all open window. [View More](https://www.geeksforgeeks.org/python-opencv-destroyallwindows-function/)
+
+- `destroyWindow(windName)` - close a specif window
 
 ## Draw Line
 ```
