@@ -15,6 +15,15 @@ pip install opencv-python
 - `destroyWindow(windName)` - close a specif window
 
 ## Draw Line
+- `dtype=np.uint8` - specifies the data type of the elements in the array.
+- `np.zeros((3, 3))` - creates a 3x3 array filled with zeros
+- `np.ones((3, 3))` - creates a 3x3 array filled with ones
+- `np.full((2, 2), 5)` - creates a 2x2 array filled with the value 5
+- `np.empty((2, 2))` - creates a 2x2 uninitialized array
+- `np.eye(3)` or `np.identity(3)` - creates a 3x3 identity matrix
+- `np.ones((512, 512, 3))` - creates 512x512 array which filled with 1x3 array which is filled with the value 1
+- `255*np.ones((512, 512, 3))` - 
+
 ```
 import cv2 as openCV
 import numpy as np
@@ -54,3 +63,26 @@ openCV.waitKey(0)
 openCV.destroyAllWindows()
 ```
 ![Circle](/images/drawCircle.jpg)
+
+## Draw Ellipse
+```
+import cv2 as openCV
+import numpy as np
+
+image = 255 * np.ones((512, 512, 3), dtype=np.uint8)
+
+center_coordinates = (256, 256)
+axes_length = (200, 100)
+angle = 0 
+startAngle = 0
+endAngle = 360 
+color = (255, 0, 0)
+thickness = 2
+
+openCV.ellipse(image, center_coordinates, axes_length, angle, startAngle, endAngle, color, thickness)
+
+openCV.imshow('Ellipse Image', image)
+openCV.waitKey(0)
+openCV.destroyAllWindows()
+```
+![Ellipse](/images/drawEllipse.jpg)
