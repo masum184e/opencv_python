@@ -89,10 +89,11 @@ openCV.destroyAllWindows()
 ![Rectangle](/images/drawRectangle.jpg)
 
 ## Draw Ellipse
-- `axes_length` - 
-- `angle` - 
-- `startAngle` - 
-- `endAngle` - 
+- `center_coordinates` - Specifies the center of the ellipse.
+- `axes_length` - Specifies the length of vertical & horizontal axes
+- `angle` - Specifies the rotation angle of the ellipse (in degrees) from horizontal line.
+- `startAngle` - Specifies the angle (in degrees) at which the ellipse arc starts. It defines the beginning of the arc.
+- `endAngle` - Specifies the angle (in degrees) at which the ellipse arc ends. It defines the termination point of the arc.
 ```
 import cv2 as openCV
 import numpy as np
@@ -113,7 +114,15 @@ openCV.imshow('Ellipse Image', image)
 openCV.waitKey(0)
 openCV.destroyAllWindows()
 ```
-![Ellipse](/images/drawEllipse.jpg)
+<div>
+<div style="width:50%;float:left">
+
+![Ellipse](/images/drawEllipse.jpg)</div>
+<div style="width:50%;float:left;">
+
+![Ellipse](/images/drawEllipseAngle.jpg)
+</div>
+</div>
 
 ## Draw Polygon
 ```
