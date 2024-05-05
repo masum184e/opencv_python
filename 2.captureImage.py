@@ -5,9 +5,9 @@ camera = openCV.VideoCapture(0)
 if not camera.isOpened():
     print("Error: Failed to open camera.")
 
-ret, frame = camera.read()
+isReading, frame = camera.read()
 
-if not ret:
+if not isReading:
     print("Error: Failed to capture frame.")
 
 openCV.imshow('Captured Image', frame)
