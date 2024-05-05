@@ -90,7 +90,7 @@ openCV.destroyAllWindows()
 
 ## Draw Ellipse
 - `center_coordinates` - Specifies the center of the ellipse.
-- `axes_length` - Specifies the length of vertical & horizontal axes
+- `axes_length` - Specifies the length of horizontal & vertical axes
 - `angle` - Specifies the rotation angle of the ellipse (in degrees) from horizontal line.
 - `startAngle` - Specifies the angle (in degrees) at which the ellipse arc starts. It defines the beginning of the arc.
 - `endAngle` - Specifies the angle (in degrees) at which the ellipse arc ends. It defines the termination point of the arc.
@@ -125,6 +125,8 @@ openCV.destroyAllWindows()
 </div>
 
 ## Draw Polygon
+- `isClosed` - A boolean flag indicating whether the last point should be connected to the first point to form a closed loop.
+- `pts` - it ontains the coordinates of the vertices of the polygon. Each row represents a vertex, and the polygon will be formed by connecting these vertices in the order they appear in the array.
 ```
 import cv2 as openCV
 import numpy as np
