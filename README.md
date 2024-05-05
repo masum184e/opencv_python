@@ -8,7 +8,7 @@ pip install opencv-python
 
 - `openCV.imshow(frameName, image)` - display an image in a window
 
-- `openCV.waitKey(0)` -  allows users to display a window for given milliseconds or until any key is pressed. If the parameter value is 0, you have press any key from your keyboard to destroy the window, untill it will keep open. If the parameter value is other value instead of 0, it will automatically destroy the window after that amount of milliseconds
+- `openCV.waitKey(0)` -  allows users to display a window for given milliseconds or until any key is pressed. If the parameter value is 0, you have to press any key from your keyboard to destroy the window, untill it will keep open. If the parameter value is other value instead of 0, it will automatically destroy the window after that amount of milliseconds
 
 - `openCV.destroyAllWindows()` - close all open window. [View More](https://www.geeksforgeeks.org/python-opencv-destroyallwindows-function/)
 
@@ -22,7 +22,7 @@ pip install opencv-python
 - `np.empty((2, 2))` - creates a 2x2 uninitialized array
 - `np.eye(3)` or `np.identity(3)` - creates a 3x3 identity matrix
 - `np.ones((512, 512, 3))` - creates 512x512 array which filled with 1x3 array which is filled with the value 1
-- `255*np.ones((512, 512, 3))` - 
+- `255*np.ones((512, 512, 3))` - creates a 3-dimensional with 512 rows, 512 columns and 3 depth or color channels. It means each of the value of 512*512 array have another array which contains a list of 3 value represnt rgb color code. It is used to create white image.
 
 ```
 import cv2 as openCV
