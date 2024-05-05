@@ -174,6 +174,7 @@ openCV.destroyAllWindows()
 
 ## Resizing
 - `None` - It specifies that you're not providing explicit target dimensions for the resized image. When None is provided, OpenCV calculates the size of the output image based on the specified scaling factors.
+- `camera.set(property_identifier, value)` - is used to change the resolution of a live video stream. It doesn't work with images or video, only with live video stream.
 ```
 import cv2 as openCV
 import numpy as np
