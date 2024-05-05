@@ -114,15 +114,8 @@ openCV.imshow('Ellipse Image', image)
 openCV.waitKey(0)
 openCV.destroyAllWindows()
 ```
-<div>
-<div style="width:50%;float:left">
-
-![Ellipse](/images/drawEllipse.jpg)</div>
-<div style="width:50%;float:left;">
-
-![Ellipse](/images/drawEllipseAngle.jpg)
-</div>
-</div>
+<img  width="48%" height="auto" src="./images/drawEllipseAngle.jpg" />
+<img align="right" width="49%" height="auto" src="./images/drawEllipse.jpg" />
 
 ## Draw Polygon
 - `isClosed` - A boolean flag indicating whether the last point should be connected to the first point to form a closed loop.
