@@ -11,7 +11,6 @@ pts = np.array([
     ],np.int32
 )
 
-pts = pts.reshape((-1, 1, 2))
 isClosed = True
 color = (255, 0, 0)
 thickness = 2
