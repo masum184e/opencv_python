@@ -148,6 +148,9 @@ openCV.destroyAllWindows()
 ![Polygon](/images/drawPolygon.jpg)
 
 ## Draw Text
+- `position` - The coordinates (x, y) where the text should be positioned on the image.
+- `fontFamily` - The font style to be used for the text. 
+- `fontScale` - The scale factor that multiplies the font size.
 ```
 import cv2 as openCV
 import numpy as np
