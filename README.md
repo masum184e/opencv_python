@@ -212,3 +212,7 @@ openCV.destroyAllWindows()
 
 - `openCV.hconcat()` - is used to concatenate the images horizontally by passing a list of images to concatenate.
 - `openCV.vconcat()` - is used to concatenate the images vertically by passing a list of images to concatenate.
+
+## Contours Detection
+
+Contours are curves joining continuous points along a boundary that have the **same color** or intensity
