@@ -197,3 +197,10 @@ openCV.imshow('Scaled Image', scaled_image)
 openCV.waitKey(0)
 openCV.destroyAllWindows()
 ```
+
+## Image Property
+- `shape` - return a list containing (height, width, channels)
+- `size` - returns the total number of elements in the image array, which is the product of its width, height, and number of channels.
+- `ndim` - returns the number of dimensions of the image array. For example, grayscale images have 2 dimensions (height and width), while color images have 3 dimensions (height, width, and channels). 
+- `min()` and `max()` - return the minimum and maximum pixel values in the image array, respectively.
+- `mean()` and `std()` - return the mean and standard deviation of pixel values in the image array, respectively.
