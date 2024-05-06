@@ -45,6 +45,7 @@ openCV.destroyAllWindows()
 ![Line](/images/drawLine.jpg)
 
 ## Draw Circle
+- `thickness=-1` or `thickness=openCV.FILLED` - filled the shape with color
 ```
 import cv2 as openCV
 import numpy as np
