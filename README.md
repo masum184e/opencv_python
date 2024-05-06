@@ -209,3 +209,6 @@ openCV.destroyAllWindows()
 - `openCV.split(image)` - splits the input image into its individual channels: blue, green, red. The result is three separate arrays representing the intensity of each color channel across the entire image. Each pixel of given image have 3 different color value, this method separate it and blue value return in blue part and so on. Splitting an image into its individual color channels allows you to analyze or manipulate each color component separately. For example, you can perform operations such as adjusting the brightness or contrast of a specific color channel, enhancing certain colors, or creating special effects.
 
 - `openCV.merge((b, g, r))` - merges the individual color channels. Merging the individual color channels back together is often necessary after performing operations on individual channels, such as color manipulation or filtering, to reconstruct the complete image with the desired modifications.
+
+- `openCV.hconcat()` - is used to concatenate the images horizontally by passing a list of images to concatenate.
+- `openCV.vconcat()` - is used to concatenate the images vertically by passing a list of images to concatenate.
