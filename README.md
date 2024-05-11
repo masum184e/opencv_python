@@ -227,6 +227,16 @@ __Water Detection:__ Water bodies can be detected by analyzing the intensity of 
 
 __Night Vision:__ Green color channels are often emphasized because the human eye is most sensitive to green light. By merging a grayscale image with an enhanced green channel, you can improve visibility in low-light conditions while preserving important details.
 
+## Arithmatic Operations
+
+__Brightness:__ Adding a `constant` value to every pixel in an image increases its brightness, while subtracting decreases it. This operation is often used for adjusting the exposure of images.
+
+__Contrast:__ Multiplying every pixel in an image by a `constant` value increases its contrast, while dividing decreases it. Contrast adjustment helps in enhancing the visual quality of images.
+
+__Motion Detection:__ Subtracting one image from another can highlight the differences between them. This operation is useful in applications such as motion detection, where consecutive frames of a video are subtracted to identify moving objects.
+
+__Masking:__ Multiplying an image by a` binary mask` (where pixel values are either 0 or 1) selectively applies the mask to the image. This technique is commonly used for image segmentation and region-of-interest extraction.
+
 ## Contours Detection
 
 Contours are curves joining continuous points along a boundary that have the **same color** or intensity
