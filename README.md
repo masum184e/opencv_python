@@ -205,13 +205,27 @@ openCV.destroyAllWindows()
 - `min()` and `max()` - return the minimum and maximum pixel values in the image array, respectively.
 - `mean()` and `std()` - return the mean and standard deviation of pixel values in the image array, respectively.
 
-## Splitting & Mergin
+## Splitting & Merging
+
+__Concatenation__ involves arranging multiple images side by side or on top of each other to create a larger image. __Merging__ involves combining the pixel values of two or more images to create a new image. __Splitting__ involves separating the color chanels.
+
 - `openCV.split(image)` - splits the input image into its individual channels: blue, green, red. The result is three separate arrays representing the intensity of each color channel across the entire image. Each pixel of given image have 3 different color value, this method separate it and blue value return in blue part and so on. Splitting an image into its individual color channels allows you to analyze or manipulate each color component separately. For example, you can perform operations such as adjusting the brightness or contrast of a specific color channel, enhancing certain colors, or creating special effects.
 
 - `openCV.merge((b, g, r))` - merges the individual color channels. Merging the individual color channels back together is often necessary after performing operations on individual channels, such as color manipulation or filtering, to reconstruct the complete image with the desired modifications.
 
 - `openCV.hconcat()` - is used to concatenate the images horizontally by passing a list of images to concatenate.
 - `openCV.vconcat()` - is used to concatenate the images vertically by passing a list of images to concatenate.
+
+### Uses:
+__Color Correction:__ Correcting color balance in an image might need to adjust the intensity of each color chanel independently. For example, if an image appears too blue due to incorrect white balance, you can reduce the intensity of the blue channel to balance the colors.
+
+__Image Enhancement:__ if you want to enhance the contrast of the sky in a landscape photo, you might adjust the intensity of the blue channel to make the sky more vibrant without affecting other parts of the image.
+
+__Feature Extraction:__ Object detection rely on specific color information. For example, in medical imaging, certain tissues or structures might be more distinguishable in a particular color channel.
+
+__Water Detection:__ Water bodies can be detected by analyzing the intensity of the blue channel. Water usually absorbs more red and green light, while reflecting more blue light, making it stand out in the blue channel.
+
+__Night Vision:__ Green color channels are often emphasized because the human eye is most sensitive to green light. By merging a grayscale image with an enhanced green channel, you can improve visibility in low-light conditions while preserving important details.
 
 ## Contours Detection
 
