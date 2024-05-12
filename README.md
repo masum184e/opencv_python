@@ -223,13 +223,15 @@ openCV.destroyAllWindows()
   [  0.   1.  50.]
 ]
 ```
-- `openCV.getAffineTransform()` - 
+- `openCV.getAffineTransform()` - takes the `source points` and `destination points` as parameters and computes the transformation matrix needed to map the source points to the destination points. Source and destination set contains three points, where each point represents a vertex of a triangle. These triangles define the affine transformation.
 ```
 [
   [  1.   0. 100.]
   [  0.   1.  50.]
 ]
 ```
+
+Affine transformations are operations that include translation, rotation, scaling, and shearing. It represented using transformation matrices. For a 2D affine transformation, the transformation matrix is a 2x3 matrix, where each column represents the transformation applied to the x and y coordinates, and the last column represents translation.
 
 ## Splitting & Merging
 
@@ -295,6 +297,23 @@ A blurred image is an image in which the sharpness or details have been reduced 
 [243 225 214] => [244 225 214]
 [244 228 218] => [245 228 219]
 ```
+
+## Haris Corner Detection
+Harris corner detection method is used detecting interest points or corners in an image. It's particularly robust to changes in lighting conditions and image noise
+
+- __Corner Detection Principle:__ Corners are points in an image where there are significant variations in intensity in `multiple directions`. These variations can be detected by examining the `gradient` of the image intensity.
+- __Gradient Calculation:__ Harris corner detection begins by computing the gradient of the image intensity using techniques such as `Sobel`. This step provides information about the direction and magnitude of intensity changes at each pixel.
+- __Structure Tensor Calculation:__ A structure tensor is computed for each pixel in the image. The structure tensor summarizes the gradient information in a local neighborhood around each pixel and describes the local structure of the image.
+- __Corner Response Function:__ The Harris corner detector defines a corner response function, which evaluates how likely each pixel is to be a corner based on the eigenvalues of the structure tensor. Pixels with high corner responses are considered corner candidates.
+- __Non-maximum Suppression:__ To remove redundant corner candidates and select only the most prominent corners, non-maximum suppression is applied. This process involves comparing the corner response values of neighboring pixels and retaining only the local maxima.
+- __Thresholding:__ A thresholding step is often applied to the corner response values to discard weak corners and retain only the strongest ones.
+
+- `block_size` - represents the size of the neighborhood considered for corner detection. It is the size of the kernel for the Sobel operator.
+- `ksize` - Aperture parameter of the Sobel derivative used for corner detection.
+- `k` - Harris detector free parameter in the equation (usually in the range of 0.04 to 0.06).
+- `openCV.cornerHarris()` - returns a response map containing the corner response values for each pixel.
+- `threshold = 0.01 * dst.max()` - applies thresholding to the corner response map to identify prominent corners. It calculates a threshold value as 1% of the maximum response value.
+- `image[dst > threshold] = [0, 0, 255]` - it marks the detected corners on the original image by setting the color of the pixels with a corner response above the threshold to red ([0, 0, 255]).
 
 ## Contours Detection
 
