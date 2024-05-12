@@ -205,6 +205,32 @@ openCV.destroyAllWindows()
 - `min()` and `max()` - return the minimum and maximum pixel values in the image array, respectively.
 - `mean()` and `std()` - return the mean and standard deviation of pixel values in the image array, respectively.
 
+## Translation
+
+- `openCV.warpAffine()` - is used to perform the image translation which takes the input image, the translation matrix, and the output image size (width, height) as parameters. The function applies the specified transformation to the input image, resulting in the translated image based on translation matrix.
+
+- `openCV.getRotationMatrix2D()` - calculates the transformation matrix needed to perform the rotation. It takes the rotation center, the rotation angle, and the scale factor as parameters.
+```
+[
+  [  0.70710678   0.70710678 -56.10973978]
+  [ -0.70710678   0.70710678 282.53910524]
+]
+```
+- `np.float32()` - It generate a matrix which represents the transformation to be applied to the image. It defines how much the image should be shifted in the x and y directions.
+```
+[
+  [  1.   0. 100.]
+  [  0.   1.  50.]
+]
+```
+- `openCV.getAffineTransform()` - 
+```
+[
+  [  1.   0. 100.]
+  [  0.   1.  50.]
+]
+```
+
 ## Splitting & Merging
 
 __Concatenation__ involves arranging multiple images side by side or on top of each other to create a larger image. __Merging__ involves combining the pixel values of two or more images to create a new image. __Splitting__ involves separating the color chanels.
