@@ -237,6 +237,39 @@ __Motion Detection:__ Subtracting one image from another can highlight the diffe
 
 __Masking:__ Multiplying an image by a` binary mask` (where pixel values are either 0 or 1) selectively applies the mask to the image. This technique is commonly used for image segmentation and region-of-interest extraction.
 
+## Grayscale Image
+Grayscale Image only contain a single channel representing the intensity of light at each pixel, without any color information. It is achieved by taking a `weighted sum of the Red, Green, and Blue channels` of the original image. The weights are typically chosen to match the perceived brightness of the different color channels. Finally, the resulting intensity value is assigned to each pixel in the grayscale image.
+
+## HSV Image
+An HSV color model is the most accurate color model as long as the way humans perceive colors. How humans perceive colors is not like how RGB or CMYK make colors. They are just primary colors fused to create the spectrum.
+
+- `Hue` - It represents the color itself. It is typically represented as an angle around a color wheel, ranging from 0 to 360 degrees, covering the spectrum of colors.
+- `Saturation` - It represents the purity of the color. Higher saturation values indicate more vibrant colors, while lower values approach shades of gray.
+- `Value` - It represents the brightness or intensity of the color. Higher values correspond to brighter colors, while lower values approach black.
+
+Pixel value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[240 221 210]<br>
+HSV value of 240: [109  32 240]
+
+|Angle|Color|
+|---|---|
+|0-60|Red|
+|60-120|Yellow|
+|120-180|Green|
+|180-240|Cyan|
+|240-300|Blue|
+|300-360|Magenta|
+
+
+## Blur Image
+A blurred image is an image in which the sharpness or details have been reduced intentionally through a process known as blurring. Blurring is a common technique in image processing used to reduce noise, smooth out irregularities, or obscure details in an image.
+
+```
+   Original   =>    Blurred
+[243 224 213] => [240 221 210]
+[243 225 214] => [244 225 214]
+[244 228 218] => [245 228 219]
+```
+
 ## Contours Detection
 
 Contours are curves joining continuous points along a boundary that have the **same color** or intensity
