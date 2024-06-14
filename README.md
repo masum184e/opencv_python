@@ -1,17 +1,23 @@
-## Installation
+# Introduction
+OpenCV (Open Source Computer Vision Library) is an open-source computer vision and machine learning software library. It provides a wide variety of tools and functions that help in tasks such as image and video processing, object detection, motion tracking, and more.
+
+OpenCV-Python is the Python wrapper for OpenCV. It allows you to use OpenCV's C++ library functions in Python scripts. OpenCV-Python is well-suited for fast prototyping of computer vision applications.
+
+Compared to languages like C/C++, Python is slower. That said, Python can be easily extended with C/C++, which allows us to write computationally intensive code in C/C++ and create Python wrappers that can be used as Python modules. This gives us two advantages: first, the code is as fast as the original C/C++ code (since it is the actual C++ code working in background) and second, it is easier to code in Python than C/C++. OpenCV-Python is a Python wrapper for the original OpenCV C++ implementation.
+
+OpenCV-Python makes use of Numpy, which is a highly optimized library for numerical operations with a MATLAB-style syntax. All the OpenCV array structures are converted to and from Numpy arrays. This also makes it easier to integrate with other libraries that use Numpy such as SciPy and Matplotlib.
+
+# Installation
 ```
 pip install opencv-python
 ```
 
 ## Read
 - `openCV.imread(imagePath)` - load the image from the specified path
-
 - `openCV.imshow(frameName, image)` - display an image in a window
-
-- `openCV.waitKey(0)` -  allows users to display a window for given milliseconds or until any key is pressed. If the parameter value is 0, you have to press any key from your keyboard to destroy the window, untill it will keep open. If the parameter value is other value instead of 0, it will automatically destroy the window after that amount of milliseconds
-
+- `openCV.imwrite(imagePath)` - save image in the specified path
+- `openCV.waitKey(0)` -  allows users to display a window for given milliseconds or until any key is pressed. If the parameter value is 0, you have to press any key from your keyboard to destroy the window, untill it will keep open. If the parameter value is other value instead of 0, it will automatically destroy the window after that amount of milliseconds. It return value is the key that was pressed.
 - `openCV.destroyAllWindows()` - close all open window. [View More](https://www.geeksforgeeks.org/python-opencv-destroyallwindows-function/)
-
 - `destroyWindow(windName)` - close a specif window
 
 ## Draw Line
@@ -66,8 +72,8 @@ openCV.destroyAllWindows()
 ![Circle](/images/drawCircle.jpg)
 
 ## Draw Rectangle
-- `start_point` - specify the position of top left corner of the rectangle
-- `end_point` - specify the position of bottom right corner of the rectangle
+- `top_left` - specify the position of top left corner of the rectangle
+- `bottom_right` - specify the position of bottom right corner of the rectangle
 
 ```
 import cv2 as openCV
@@ -75,12 +81,12 @@ import numpy as np
 
 image = 255 * np.ones((512, 512, 3), dtype=np.uint8)
 
-start_point = (100, 100)
-end_point = (400, 400)
+top_left = (100, 100)
+bottom_right = (400, 400)
 color = (255, 0, 0)
 thickness = 2
 
-openCV.rectangle(image, start_point, end_point, color, thickness)
+openCV.rectangle(image, top_left, bottom_right, color, thickness)
 
 openCV.imshow('Line Image', image)
 openCV.waitKey(0)
@@ -199,11 +205,12 @@ openCV.destroyAllWindows()
 ```
 
 ## Image Property
-- `shape` - return a list containing (height, width, channels)
-- `size` - returns the total number of elements in the image array, which is the product of its width, height, and number of channels.
+- `shape` - return a list containing (height, width, channels), If an image is grayscale, the tuple returned contains only the number of rows and columns, so it is a good method to check whether the loaded image is grayscale or color.
+- `size` - returns the total number of pixel in the image array, which is the product of its width, height, and number of channels.
 - `ndim` - returns the number of dimensions of the image array. For example, grayscale images have 2 dimensions (height and width), while color images have 3 dimensions (height, width, and channels). 
 - `min()` and `max()` - return the minimum and maximum pixel values in the image array, respectively.
 - `mean()` and `std()` - return the mean and standard deviation of pixel values in the image array, respectively.
+- `dtype` - return datatype of an image. It is very important while debugging because a large number of errors are caused by invalid datatype.
 
 ## Translation
 
@@ -267,6 +274,31 @@ __Masking:__ Multiplying an image by a` binary mask` (where pixel values are eit
 
 ## Grayscale Image
 Grayscale Image only contain a single channel representing the intensity of light at each pixel, without any color information. It is achieved by taking a `weighted sum of the Red, Green, and Blue channels` of the original image. The weights are typically chosen to match the perceived brightness of the different color channels. Finally, the resulting intensity value is assigned to each pixel in the grayscale image.
+
+A grayscale image is a type of digital image in which each pixel represents a single intensity value that denotes the light intensity, ranging from black to white. Unlike color images, which have multiple color channels (such as RGB - Red, Green, Blue), grayscale images contain only one channel.
+
+1. __Single Intensity Channel:__ Each pixel in a grayscale image has a single value representing the intensity of light. The value typically ranges from 0 to 255 in 8-bit images, where:
+
+    - `0` represents black (no light).
+    - `255` represents white (maximum light intensity).
+    - Values between 0 and 255 represent varying shades of gray.
+2. __Simplified Data Structure:__ Because grayscale images have only one channel, they require less memory and computational power compared to color images. This makes them suitable for many image processing tasks where color information is not crucial.
+3. __Applications:__ Grayscale images are widely used in image processing, computer vision, and machine learning for tasks such as edge detection, pattern recognition, and thresholding.
+
+__Grayscale Image:__
+```
+image = np.zeros((500, 500), dtype=np.uint8)
+cv2.circle(image, (250, 250), 100, 255, -1)
+```
+__Color Image:__
+```
+image = np.zeros((500, 500, 3), dtype=np.uint8)
+cv2.circle(image, (250, 250), 100, (255, 0, 0), -1)
+```
+__Convert Color Image to Grayscale Image:__
+```
+gray_image = cv2.cvtColor(color_image, cv2.COLOR_BGR2GRAY)
+```
 
 ## HSV Image
 An HSV color model is the most accurate color model as long as the way humans perceive colors. How humans perceive colors is not like how RGB or CMYK make colors. They are just primary colors fused to create the spectrum.
