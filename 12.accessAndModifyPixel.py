@@ -17,6 +17,11 @@ image[108, 108] = [255, 255, 255]
 image[109, 109] = [255, 255, 255] 
 image[110, 110] = [255, 255, 255] 
 
+# Numpy is an optimized library for fast array calculations. So simply accessing each and every pixel value and modifying it will be very slow and it is discouraged.
+
+# image.item(10,10,2) -> accessing RED value of index [10, 10], 0 for blue, 1 for green
+# image.itemset((10,10,2),100) -> modifying RED value of index [10, 10]
+
 openCV.imshow('Image', image)
 openCV.waitKey(0)
 openCV.destroyAllWindows()
