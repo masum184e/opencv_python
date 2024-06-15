@@ -263,6 +263,7 @@ __Water Detection:__ Water bodies can be detected by analyzing the intensity of 
 __Night Vision:__ Green color channels are often emphasized because the human eye is most sensitive to green light. By merging a grayscale image with an enhanced green channel, you can improve visibility in low-light conditions while preserving important details.
 
 ## Arithmatic Operations
+Both images should be of same depth and type, or the second image can just be a scalar value. There is a difference between OpenCV addition(`add()`) and Numpy addition(`img1+img2`). OpenCV addition is a saturated operation while Numpy addition is a modulo operation.
 
 __Brightness:__ Adding a `constant` value to every pixel in an image increases its brightness, while subtracting decreases it. This operation is often used for adjusting the exposure of images.
 
